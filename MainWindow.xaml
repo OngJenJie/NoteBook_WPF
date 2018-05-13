@@ -5,22 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BasicWpfNotepad"
         mc:Ignorable="d"
-        Title="Basic Notepad" Height="400" Width="640" WindowStyle="ThreeDBorderWindow" Background="Transparent">
+        Title="Basic Notepad" Height="542" Width="640" WindowStyle="None" Background="Transparent">
     <Grid>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="470"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="0">
-            <TextBox AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="0" Padding="15" x:Name="TextArea"></TextBox>
-        </ScrollViewer>
 
-        <Grid Grid.Column="1" Background="LightGray">
+        <Grid Grid.Column="0" Background="Black">
             <StackPanel Margin="10">
-                <Button Margin="0,0,0,10" x:Name="OpenBtn" Click="OpenBtn_Click">Open</Button>
-                <Button Margin="0,0,0,10" x:Name="SaveBtn" Click="SaveBtn_Click">Save</Button>
+                <!--funxtion button-->
+                <Button Margin="10 40 0 10" x:Name="NewBtn" Click="NewBtn_Click" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" FontSize="15">
+                    New
+                </Button>
+                <Button Margin="10,10,0,10" x:Name="OpenBtn" Click="OpenBtn_Click" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" FontSize="15">
+                    Open
+                </Button>
+                <Button Margin="10,10,0,10" x:Name="SaveBtn" Click="SaveBtn_Click" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" FontSize="15">
+                    Save
+                </Button>
+
+                <!--FontSize Change-->
+                <StackPanel Margin="0 40 0 0" Orientation="Horizontal">
+                    <Button Width="20" Margin="10 10 5 10" FontSize="10" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" x:Name="SmallSize" Click="SmallSize_Click">A</Button>
+                    <Button Width="20" Margin="10 10 5 10" FontSize="15" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" x:Name="NormalSize" Click="NormalSize_Click">A</Button>
+                    <Button Width="20" Margin="10 10 5 10" FontSize="20" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" x:Name="LargeSize" Click="LargeSize_Click">A</Button>
+                </StackPanel>
+
             </StackPanel>
         </Grid>
+
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1">
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="0" Padding="15" x:Name="TextArea" Background="White" Foreground="Gray" FontSize="15"></TextBox>
+        </ScrollViewer>
     </Grid>
 </Window>
