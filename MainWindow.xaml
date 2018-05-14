@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BasicWpfNotepad"
         mc:Ignorable="d"
         Title="Basic Notepad" Height="542" Width="640" WindowStyle="None" Background="Transparent">
-    <Grid>  
+    <Grid>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -39,10 +39,11 @@
                     <Ellipse Width="25" Height="25" Fill="White" Stroke="LightGray" StrokeThickness="3" x:Name="ColourToWhite" Margin="20 0 0 0" MouseLeftButtonDown="ColourToWhite_MouseLeftButtonDown"></Ellipse>
                 </StackPanel>
 
+                <Button Margin="0 30 0 0" Height="30" Width="30" x:Name="ExitBtn" Click="ExitBtn_Click">X</Button>
+
             </StackPanel>
         </Grid>
-
-
+        
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1">
             <TextBox AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="0" Padding="15" x:Name="TextArea" Background="White" Foreground="DimGray" FontSize="15"></TextBox>
         </ScrollViewer>

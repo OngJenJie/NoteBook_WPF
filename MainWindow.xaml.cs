@@ -25,6 +25,7 @@ namespace BasicWpfNotepad
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
 
@@ -104,6 +105,11 @@ namespace BasicWpfNotepad
             // 改變主題顏色
             TextArea.Background = Brushes.White;
             TextArea.Foreground = Brushes.DimGray;
+        }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
