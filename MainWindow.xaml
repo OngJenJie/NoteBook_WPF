@@ -19,7 +19,7 @@
 
         <StackPanel Grid.Row="0" Background="Black"></StackPanel>
 
-        <StackPanel Grid.Row="0" Grid.Column="1" Background="White" Orientation="Horizontal" x:Name="TitleBg">
+        <StackPanel Grid.Row="0" Grid.Column="1" Background="White" Orientation="Horizontal" x:Name="TitleBg" MouseMove="TitleBg_MouseMove">
             <TextBlock Width="300" Margin="15 0 0 0" TextAlignment="Left" FontSize="18" x:Name="FileNametxt" Foreground="DimGray">NewFile.txt</TextBlock>
             <Button Width="30" Margin="30 0 0 0" x:Name="MinimizeBtn" Click="MinimizeBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="DimGray">
                 ▂</Button>
