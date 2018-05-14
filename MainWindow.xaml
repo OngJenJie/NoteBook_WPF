@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BasicWpfNotepad"
         mc:Ignorable="d"
         Title="Basic Notepad" Height="542" Width="640" WindowStyle="None" Background="Transparent">
-    <Grid>
+    <Grid>  
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -34,12 +34,17 @@
                     <Button Width="20" Margin="10 10 5 10" FontSize="20" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" x:Name="LargeSize" Click="LargeSize_Click">A</Button>
                 </StackPanel>
 
+                <StackPanel  Margin="0 30 0 0" Orientation="Horizontal">
+                    <Ellipse Width="25" Height="25" Fill="DimGray" Stroke="LightGray" StrokeThickness="3" x:Name="ColourToBlack" Margin="20 0 0 0" MouseLeftButtonDown="ColourToBlack_MouseLeftButtonDown"></Ellipse>
+                    <Ellipse Width="25" Height="25" Fill="White" Stroke="LightGray" StrokeThickness="3" x:Name="ColourToWhite" Margin="20 0 0 0" MouseLeftButtonDown="ColourToWhite_MouseLeftButtonDown"></Ellipse>
+                </StackPanel>
+
             </StackPanel>
         </Grid>
 
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1">
-            <TextBox AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="0" Padding="15" x:Name="TextArea" Background="White" Foreground="Gray" FontSize="15"></TextBox>
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="0" Padding="15" x:Name="TextArea" Background="White" Foreground="DimGray" FontSize="15"></TextBox>
         </ScrollViewer>
     </Grid>
 </Window>

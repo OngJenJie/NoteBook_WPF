@@ -76,7 +76,7 @@ namespace BasicWpfNotepad
 
         private void SmallSize_Click(object sender, RoutedEventArgs e)
         {
-            TextArea.FontSize = 10;
+            TextArea.FontSize--;
         }
 
         private void NormalSize_Click(object sender, RoutedEventArgs e)
@@ -86,7 +86,19 @@ namespace BasicWpfNotepad
 
         private void LargeSize_Click(object sender, RoutedEventArgs e)
         {
-            TextArea.FontSize = 20;
+            TextArea.FontSize++;
+        }
+
+        private void ColourToBlack_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TextArea.Background = Brushes.DimGray;
+            TextArea.Foreground = Brushes.LightGray;
+        }
+
+        private void ColourToWhite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TextArea.Background = Brushes.White;
+            TextArea.Foreground = Brushes.DimGray;
         }
     }
 }
