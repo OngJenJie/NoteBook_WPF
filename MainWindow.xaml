@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BasicWpfNotepad"
         mc:Ignorable="d"
-        Title="Basic Notepad" Height="auto" WindowStyle="None" Background="Transparent" Width="644">
+        Title="Basic Notepad" WindowStyle="None" Background="Transparent" Width="644">
     <Grid RenderTransformOrigin="0.514,0.281">
 
         <Grid.RowDefinitions>
@@ -19,13 +19,13 @@
 
         <StackPanel Grid.Row="0" Background="Black"></StackPanel>
 
-        <StackPanel Grid.Row="0" Grid.Column="1" Background="White" Orientation="Horizontal">
-            <TextBlock Width="300" Margin="15 0 0 0" TextAlignment="Left" FontSize="18" x:Name="FileNametxt">NewFile.txt</TextBlock>
-            <Button Width="30" Margin="30 0 0 0" x:Name="MinimizeBtn" Click="MinimizeBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+        <StackPanel Grid.Row="0" Grid.Column="1" Background="White" Orientation="Horizontal" x:Name="TitleBg">
+            <TextBlock Width="300" Margin="15 0 0 0" TextAlignment="Left" FontSize="18" x:Name="FileNametxt" Foreground="DimGray">NewFile.txt</TextBlock>
+            <Button Width="30" Margin="30 0 0 0" x:Name="MinimizeBtn" Click="MinimizeBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="DimGray">
                 ▂</Button>
-            <Button Width="30" Margin="10 0 0 0" x:Name="MaximizeBtn" Click="MaximizeBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+            <Button Width="30" Margin="10 0 0 0" x:Name="MaximizeBtn" Click="MaximizeBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="DimGray">
                 ▭</Button>
-            <Button Width="30" Margin="10 0 0 0" x:Name="ExitBtn" Click="ExitBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+            <Button Width="30" Margin="10 0 0 0" x:Name="ExitBtn" Click="ExitBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="DimGray">
                 ✘</Button>
         </StackPanel>
          

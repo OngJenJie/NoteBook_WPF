@@ -97,19 +97,39 @@ namespace BasicWpfNotepad
         {
             // 改變主題顏色
             TextArea.Background = Brushes.DimGray;
+            TitleBg.Background = Brushes.DimGray;
             TextArea.Foreground = Brushes.LightGray;
+            FileNametxt.Foreground = Brushes.LightGray;
+            MinimizeBtn.Foreground = Brushes.LightGray;
+            MaximizeBtn.Foreground = Brushes.LightGray;
+            ExitBtn.Foreground = Brushes.LightGray;
         }
 
         private void ColourToWhite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // 改變主題顏色
             TextArea.Background = Brushes.White;
+            TitleBg.Background = Brushes.White;
             TextArea.Foreground = Brushes.DimGray;
+            FileNametxt.Foreground = Brushes.DimGray;
+            MinimizeBtn.Foreground = Brushes.DimGray;
+            MaximizeBtn.Foreground = Brushes.DimGray;
+            ExitBtn.Foreground = Brushes.DimGray;
+        }
+
+        private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MaximizeBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+
         }
     }
 }
