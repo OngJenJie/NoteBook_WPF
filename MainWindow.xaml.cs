@@ -76,27 +76,32 @@ namespace BasicWpfNotepad
 
         private void SmallSize_Click(object sender, RoutedEventArgs e)
         {
+            // 把文字縮小
             TextArea.FontSize--;
         }
 
         private void NormalSize_Click(object sender, RoutedEventArgs e)
         {
+            // 把文字復原為起始大小
             TextArea.FontSize = 15;
         }
 
         private void LargeSize_Click(object sender, RoutedEventArgs e)
         {
+            // 把文字放大
             TextArea.FontSize++;
         }
 
         private void ColourToBlack_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            // 改變主題顏色
             TextArea.Background = Brushes.DimGray;
             TextArea.Foreground = Brushes.LightGray;
         }
 
         private void ColourToWhite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            // 改變主題顏色
             TextArea.Background = Brushes.White;
             TextArea.Foreground = Brushes.DimGray;
         }
