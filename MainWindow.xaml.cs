@@ -119,17 +119,24 @@ namespace BasicWpfNotepad
 
         private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            this.WindowState = WindowState.Minimized;
         }
 
         private void MaximizeBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal; //设置窗口还原
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized; //设置窗口最大化
+            }
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }
