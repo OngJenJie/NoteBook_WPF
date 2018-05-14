@@ -5,16 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BasicWpfNotepad"
         mc:Ignorable="d"
-        Title="Basic Notepad" Height="542" Width="640" WindowStyle="None" Background="Transparent">
-    <Grid>
+        Title="Basic Notepad" Height="auto" WindowStyle="None" Background="Transparent" Width="644">
+    <Grid RenderTransformOrigin="0.514,0.281">
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="470"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <StackPanel Grid.Row="0" Background="Black"></StackPanel>
 
-        <Grid Grid.Column="0" Background="Black">
+        <StackPanel Grid.Row="0" Grid.Column="1" Background="White" Orientation="Horizontal">
+            <TextBlock Width="300" Margin="15 0 0 0" TextAlignment="Left" FontSize="18" x:Name="FileNametxt">NewFile.txt</TextBlock>
+            <Button Width="30" Margin="30 0 0 0" x:Name="MinimizeBtn" Click="MinimizeBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                ▂</Button>
+            <Button Width="30" Margin="10 0 0 0" x:Name="MaximizeBtn" Click="MaximizeBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" >
+                ▭</Button>
+            <Button Width="30" Margin="10 0 0 0" x:Name="ExitBtn" Click="ExitBtn_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                ✘</Button>
+        </StackPanel>
+         
+        <Grid Grid.Row="1" Grid.Column="0" Background="Black">
             <StackPanel Margin="10">
                 <!--funxtion button-->
                 <Button Margin="10 40 0 10" x:Name="NewBtn" Click="NewBtn_Click" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" FontSize="15">
@@ -39,12 +54,10 @@
                     <Ellipse Width="25" Height="25" Fill="White" Stroke="LightGray" StrokeThickness="3" x:Name="ColourToWhite" Margin="20 0 0 0" MouseLeftButtonDown="ColourToWhite_MouseLeftButtonDown"></Ellipse>
                 </StackPanel>
 
-                <Button Margin="0 30 0 0" Height="30" Width="30" x:Name="ExitBtn" Click="ExitBtn_Click">X</Button>
-
             </StackPanel>
         </Grid>
-        
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="1">
             <TextBox AcceptsReturn="True" TextWrapping="Wrap" BorderThickness="0" Padding="15" x:Name="TextArea" Background="White" Foreground="DimGray" FontSize="15"></TextBox>
         </ScrollViewer>
     </Grid>
