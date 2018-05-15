@@ -41,6 +41,8 @@
                 <Button Margin="10,10,0,10" x:Name="SaveBtn" Click="SaveBtn_Click" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" FontSize="15">
                     Save
                 </Button>
+                <Button Margin="10,10,0,10" x:Name="SaveAs" Click="SaveAs_Click" HorizontalContentAlignment="Left" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Foreground="White" FontSize="15">
+                    Save As</Button>
 
                 <!--FontSize Change-->
                 <StackPanel Margin="0 40 0 0" Orientation="Horizontal">
