@@ -26,7 +26,7 @@ namespace BasicWpfNotepad
 
         }
 
-        string filePath = "";
+        // 宣告判斷使用的變數
         string fileName = "";
         string newFileName = "";
         string nowText = "";
@@ -35,13 +35,26 @@ namespace BasicWpfNotepad
         // 储存文件
         void Save()
         {
+
+            // 產生開啟檔案視窗
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            
+            // 顯示視窗
             Nullable<bool> result = dlg.ShowDialog();
+
+            // 當按下開啟之後的反應
             if (result == true)
             {
+                // 儲存檔案
                 System.IO.File.WriteAllText(dlg.FileName, TextArea.Text);
+
+                // 取得檔案路徑
                 fileName = dlg.FileName;
+
+                // 獲取資料
                 savedText = nowText; ;
+
+                // 顯示文件名字
                 FileNametxt.Text = dlg.SafeFileName + ".txt";
             }
         }
@@ -64,7 +77,7 @@ namespace BasicWpfNotepad
         private void OpenBtn_Click(object sender, RoutedEventArgs e)
         {
             if (savedText != nowText)
-                if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Save configuration changes and exit?", "OK or Cancel", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     Save();
                     Open();
@@ -94,11 +107,12 @@ namespace BasicWpfNotepad
             }
         }
 
+        // 開啟新的文件
         private void NewBtn_Click(object sender, RoutedEventArgs e)
         {
             if (savedText != nowText)
             {
-                if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Save configuration changes and exit?", "OK or Cancel", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     Save();
                     TextArea.Text = "";
@@ -114,6 +128,7 @@ namespace BasicWpfNotepad
             }
         }
 
+        // 另存新檔案
         private void SaveAs_Click(object sender, RoutedEventArgs e)
         {
             Save();
@@ -161,11 +176,13 @@ namespace BasicWpfNotepad
             ExitBtn.Foreground = Brushes.DimGray;
         }
 
+        // 縮小的按鈕
         private void MinimizeBtn_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
 
+        // 放大的按鈕
         private void MaximizeBtn_Click(object sender, RoutedEventArgs e)
         {
             if (this.WindowState == WindowState.Maximized)
@@ -178,11 +195,13 @@ namespace BasicWpfNotepad
             }
         }
 
+        // 關閉程序的按鈕
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        // 拖拉程序
         private void TitleBg_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
