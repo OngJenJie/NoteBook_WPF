@@ -20,32 +20,62 @@ namespace BasicWpfNotepad
     /// </summary>
     public partial class MainWindow : Window
     {
-        string filePath = "";
-
         public MainWindow()
         {
             InitializeComponent();
 
         }
 
+        string filePath = "";
+        string fileName = "";
+        string newFileName = "";
+        string nowText = "";
+        string savedText = "";
+
+        // 储存文件
+        void Save()
+        {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                System.IO.File.WriteAllText(dlg.FileName, TextArea.Text);
+                fileName = dlg.FileName;
+                savedText = nowText; ;
+                FileNametxt.Text = dlg.SafeFileName + ".txt";
+            }
+        }
+
+        // 打开文件
+        void Open()
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                TextArea.Text = System.IO.File.ReadAllText(dlg.FileName);
+                fileName = dlg.FileName;
+                savedText = TextArea.Text;
+               FileNametxt.Text = dlg.SafeFileName + ".txt";
+            }
+        }
 
         // 開啟檔案按鈕
         private void OpenBtn_Click(object sender, RoutedEventArgs e)
         {
-            // 產生開啟檔案視窗 OpenFileDialog 
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-            // 顯示視窗
-            Nullable<bool> result = dlg.ShowDialog();
-
-            // 當按下開啟之後的反應 
-            if (result == true)
+            if (savedText != nowText)
+                if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    Save();
+                    Open();
+                }
+                else
+                {
+                    Open();
+                }
+            else
             {
-                // 取得檔案路徑 
-                filePath = dlg.FileName;
-
-                // 讀取檔案
-                TextArea.Text = System.IO.File.ReadAllText(filePath);
+                Open();
             }
         }
 
@@ -53,26 +83,40 @@ namespace BasicWpfNotepad
         // 存檔檔案按鈕
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            // 產生開啟檔案視窗 OpenFileDialog 
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-
-            // 顯示視窗
-            Nullable<bool> result = dlg.ShowDialog();
-
-            // 當按下開啟之後的反應 
-            if (result == true)
+            if (fileName == newFileName)
             {
-                // 取得檔案路徑 
-                filePath = dlg.FileName;
-
-                // 儲存檔案
-                System.IO.File.WriteAllText(filePath, TextArea.Text);
+                Save();
+            }
+            else
+            {
+                System.IO.File.WriteAllText(fileName, TextArea.Text);
+                savedText = nowText;
             }
         }
 
         private void NewBtn_Click(object sender, RoutedEventArgs e)
         {
-            TextArea.Text = "";
+            if (savedText != nowText)
+            {
+                if (MessageBox.Show("Do you want to Save?", "Save or Not", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    Save();
+                    TextArea.Text = "";
+                }
+                else
+                {
+                    TextArea.Text = "";
+                }
+            }
+            else
+            {
+                TextArea.Text = "";
+            }
+        }
+
+        private void SaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            Save();
         }
 
         private void SmallSize_Click(object sender, RoutedEventArgs e)
@@ -146,5 +190,6 @@ namespace BasicWpfNotepad
                 this.DragMove();
             }
         }
+
     }
 }
